@@ -8,4 +8,4 @@
 
 ## Screenshots
 
-![Hero Section](https://raw.githubusercontent.com/raielly/todo-app-react-ts/main/screenshots/hero-section.png)
+![Hero Section](https://raw.githubusercontent.com/raielly/todo-app-react-ts/main/screenshot/hero-section.png)
