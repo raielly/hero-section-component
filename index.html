@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raiel Test Development</title>
+
+    <!-- Swiper CSS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind CSS configuration script -->
+    <script>
+      tailwind.config = {
+        mode: "jit",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#f8f9fb",
+              secondary: "#017ef8",
+              tertiary: "#101723",
+            },
+            fontFamily: {
+              satoshi: "var(--primary-font)",
+            },
+            lineHeight: {
+              'title-lh': '5rem',
+            }
+          },
+        },
+      };
+    </script>
+
+    <!-- Global CSS -->
+    <link href="global.css" rel="stylesheet" />
+  </head>
+  <body class="py-6 px-5 md:px-10 text-tertiary bg-primary font-satoshi">
+
+    <div id="app">
+      
+      <!-- Header Section -->
+      <header class="container mx-auto py-2 sm:py-3 px-6 rounded-full bg-white flex justify-between items-center shadow-sm">
+
+        <!-- Logo -->
+        <a href="#" class="hover:opacity-80">
+          <img src="images/logo.png" alt="logo" class="w-28 lg:w-40" height="112" />
+        </a>
+
+        <!-- Navigation Links -->
+        <nav class="flex items-center justify-between text-base font-extrabold hidden lg:block">
+          <a href="#" class="inline-block px-4 xl:px-6 py-2 hover:text-gray-600">Features</a>
+          <a href="#" class="inline-block px-4 xl:px-6 py-2 hover:text-gray-600">Solutions</a>
+          <a href="#" class="inline-block px-4 xl:px-6 py-2 hover:text-gray-600">Resources</a>
+          <a href="#" class="inline-block px-4 xl:px-6 py-2 hover:text-gray-600">Pricing</a>
+        </nav>
+
+        <!-- Buttons (Login, Get Started) -->
+        <div class="flex items-center justify-between space-x-2 xl:space-x-3 hidden lg:block">
+          <button class="border px-4 py-2 rounded-full font-bold hover:bg-gray-50">Login</button>
+          <button class="border px-4 py-2 rounded-full font-bold bg-secondary text-white hover:bg-blue-600">
+            Get Started
+          </button>
+        </div>
+
+        <!-- Responsive Menu Button (for small screens) -->
+        <button 
+          class="border p-2 rounded-full font-bold bg-secondary text-white block lg:hidden" 
+          @click="isOpen = !isOpen"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </header>
+
+      <!-- Responsive Menu (for small screens) -->
+      <div 
+        class="fixed w-full h-full left-0 top-0 lg:hidden z-10"
+        v-show="isOpen"
+      >
+
+        <!-- Background Overlay -->
+        <div 
+          class="fixed w-full h-full left-0 top-0 bg-black/50 z-0"
+          @click="isOpen = false"
+        >
+        </div>
+
+        <!-- Responsive Menu Content -->
+        <div 
+          class="max-w-60 md:max-w-96 bg-white py-5 px-5 md:px-8 h-full flex flex-col justify-between relative z-50 "
+        >
+          <div class="flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="hover:opacity-80">
+              <img src="images/logo.png" alt="logo" width="110" height="112" />
+            </a>
+
+            <!-- Close Button -->
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"
+              @click="isOpen = false"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+          </div>
+
+          <!-- Navigation Links -->
+          <nav class="grid text-base font-extrabold">
+            <a href="#" class="block py-3 hover:text-gray-600">Features</a>
+            <a href="#" class="block py-3 hover:text-gray-600">Solutions</a>
+            <a href="#" class="block py-3 hover:text-gray-600">Resources</a>
+            <a href="#" class="block py-3 hover:text-gray-600">Pricing</a>
+          </nav>
+
+          <!-- Buttons (Login, Get Started) -->
+          <div class="grid gap-3 ">
+            <button class="border px-4 py-2 rounded-full font-bold hover:bg-gray-50">Login</button>
+            <button class="border px-4 py-2 rounded-full font-bold bg-secondary text-white hover:bg-blue-600">
+              Get Started
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content Section -->
+      <main class="container mx-auto pt-8 lg:pt-14">
+        <div class="grid grid xl:grid-cols-[1.1fr_1fr] gap-10 ">
+
+          <!-- Text Content Section -->
+          <div class="space-y-3 xl:space-y-4 min-w-full">
+
+            <!-- Subtitle -->
+            <h2 class="text-secondary uppercase font-extrabold text-sm md:text-base lg:text-lg tracking-widest">
+              best caption here
+            </h2>
+
+            <!-- Title -->
+            <h1 class="text-4xl md:text-5xl lg:text-7xl font-extrabold lg:pb-3 lg:leading-title-lh">Build online business from home.</h1>
+
+             <!-- Paragraph -->
+            <p class="font-black text-md lg:text-lg">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Repellendus officia quisquam officiis placeat eius. Veritatis quidem
+              quae enim dolores cum asperiores vel voluptate excepturi culpa
+              impedit porro, fugiat, officiis commodi?
+            </p>
+
+            <!-- Buttons (Get Started, Watch Video) -->
+            <div class="grid gap-3 sm:gap-0 sm:flex items-center sm:space-x-4 pt-5 lg:pt-3">
+              <button class="px-4 py-2.5 rounded-full font-extrabold bg-secondary text-white hover:bg-blue-600">
+                Get Started
+              </button>
+              <button class=" px-4 py-2.5 rounded-full font-extrabold border bg-white hover:bg-gray-50">Watch Video</button>
+            </div>
+
+             <!-- Swiper Container -->
+            <div class="py-2">
+              <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+
+                   <!-- Loop through reviews -->
+                  <div v-for="(review, index) in reviews" :key="index" class="swiper-slide bg-white rounded-2xl p-4 px-8 space-y-2 ">
+
+                    <!-- Star Ratings -->
+                    <div class="flex">
+                      <span v-for="(star, index) in review.stars" :key="index">
+
+                        <!-- Star SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" :fill="review.color" viewBox="0 0 24 24" stroke-width="1.5" :stroke="review.color" class="w-6 h-6">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
+                        </svg>
+                      </span>
+                    </div>
+
+                    <!-- Review Details -->
+                    <div class="font-black text-lg">
+                      {{ review.average }}/5 
+                      <span class="text-gray-400 font-medium">({{ review.totalReviews }} Reviews)</span>
+                    </div>
+
+                    <!-- Logo Image -->
+                    <img src="images/logo.png" alt="logo" class="w-32" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image Section -->
+          <div class="flex bg-white xl:bg-transparent justify-center xl:justify-end rounded-3xl">
+              <img src="images/like.png" alt="" class="object-cover p-10 pb-0 bg-white rounded-3xl ">
+          </div>
+        </div>
+      </main>
+      
+    </div>
+
+    <!-- Vue.js CDN -->
+    <script src="https://unpkg.com/vue@3.1.1/dist/vue.global.prod.js"></script>
+
+    <!-- Vue.js Initialization -->
+    <script>
+      const { createApp } = Vue
+
+      createApp({
+        data(){
+          return {
+            isOpen: false,
+            reviews: [
+              {
+                stars: 5,
+                average: 4.2,
+                totalReviews: '45k',
+                color: '#00B171',
+                name: ''
+              },
+              {
+                stars: 5,
+                average: 4.1,
+                totalReviews: '18k',
+                color: '#FE8A00',
+                name: ''
+              },
+              {
+                stars: 5,
+                average: 4,
+                totalReviews: '20k',
+                color: '#00B171',
+                name: ''
+              },
+              {
+                stars: 5,
+                average: 4.1,
+                totalReviews: '10k',
+                color: '#FE8A00',
+                name: ''
+              },
+            ]
+          }
+        },
+      }).mount('#app')
+
+      //console.log(Vue.version)
+    </script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Swiper Initialization -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        breakpoints: {
+          // when window width is <= 640px
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 30
+          },
+        }
+      });
+    </script>
+  </body>
+</html>
